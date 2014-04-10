@@ -9,7 +9,7 @@ build_requires:
   Test::TypeTiny: 0
 configure_requires:
   ExtUtils::MakeMaker: 6.17
-dynamic_config: 0
+dynamic_config: 1
 generated_by: 'Dist::Inkt::Profile::TOBYINK version 0.015, CPAN::Meta::Converter version 2.120921'
 keywords: []
 license: perl
@@ -28,7 +28,7 @@ optional_features: {}
 provides:
   Types::Interface:
     file: lib/Types/Interface.pm
-    version: 0.001
+    version: 0.002
 requires:
   Role::Inspector: 0
   Type::Library: 0
@@ -41,4 +41,4 @@ resources:
   homepage: https://metacpan.org/release/Types-Interface
   license: http://dev.perl.org/licenses/
   repository: git://github.com/tobyink/p5-types-interface.git
-version: 0.001
+version: 0.002

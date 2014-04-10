@@ -6,7 +6,7 @@ my $EUMM = eval( $ExtUtils::MakeMaker::VERSION );
 my $meta = {
   "abstract"       => "fuzzy role constraints",
   "author"         => ["Toby Inkster (TOBYINK) <tobyink\@cpan.org>"],
-  "dynamic_config" => 0,
+  "dynamic_config" => 1,
   "generated_by"   => "Dist::Inkt::Profile::TOBYINK version 0.015, CPAN::Meta::Converter version 2.120921",
   "keywords"       => [],
   "license"        => ["perl_5"],
@@ -30,15 +30,16 @@ my $meta = {
                                      },
                         test      => {
                                        requires => {
-                                         "Class::Tiny"    => 0,
-                                         "Role::Tiny"     => "1.000000",
-                                         "Test::More"     => 0.96,
-                                         "Test::TypeTiny" => 0,
-                                       },
+                                                     "Class::Tiny"    => 0,
+                                                     "Role::Tiny"     => "1.000000",
+                                                     "Test::More"     => 0.96,
+                                                     "Test::TypeTiny" => 0,
+                                                   },
+                                       suggests => { "UNIVERSAL::DOES" => 0 },
                                      },
                       },
   "provides"       => {
-                        "Types::Interface" => { file => "lib/Types/Interface.pm", version => 0.001 },
+                        "Types::Interface" => { file => "lib/Types/Interface.pm", version => 0.002 },
                       },
   "release_status" => "stable",
   "resources"      => {
@@ -54,10 +55,14 @@ my $meta = {
                                         },
                         X_identifier => "http://purl.org/NET/cpan-uri/dist/Types-Interface/project",
                       },
-  "version"        => 0.001,
+  "version"        => 0.002,
 };
 
 my %dynamic_config;
+do {
+$meta->{prereqs}{runtime}{requires}{'UNIVERSAL::DOES'} = '0.32' if $] < 5.010000;
+
+};
 
 my %WriteMakefileArgs = (
 	ABSTRACT   => $meta->{abstract},
